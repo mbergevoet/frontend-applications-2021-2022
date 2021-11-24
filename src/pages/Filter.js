@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import StarWarsContext from "../providers/StarWarsContext";
-import CharacterCard from "./CharacterCard";
+import CharacterCard from "../components/CharacterCard";
 
-const CharacterData = () => {
+const Filter = () => {
     const starWarsJson = useContext(StarWarsContext);
 
     if (!starWarsJson) {
         return null
     }
 
+    // Maps over the json results array with characters and for each item in the array it will create a character card. Using the spread operator I give the character card all the data of each character card
     return (
-        <div class="character-wrapper">
+        <div class="filter-wrapper">
             {starWarsJson?.results.map((character) => (
                 <CharacterCard {...character} />
             ))}
@@ -18,4 +19,4 @@ const CharacterData = () => {
     );
 };
 
-export default CharacterData;
+export default Filter;

@@ -1,16 +1,119 @@
+@font-face {
+	font-family: 'CrawlTitle';
+	src: url('./fonts/SWCrawlTitle.ttf');
+}
+
+@font-face {
+	font-family: 'CrawlBody';
+	src: url('./fonts/SWCrawlBody.ttf');
+}
+
 $dropshadow: drop-shadow(1px 4px 4px rgb(36, 36, 209));
+$transition: 0.3s all;
 
 html {
-  background-color: #282c34;
+  background: #1d1f20;
+  overflow-x: hidden;
 }
 
 .App {
 
-  h1 {
-    color: #fff;
+  header {
+    height: auto;
+    width: 100vw;
+    background-color: #000;
+    background-image: url('./images/starsbackgroundtransparent.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #333333;
+
+    div {
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid #333333;
+
+      img {
+        padding: 1.5rem 0;
+      }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #000;
+
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        width: 20vw;
+        margin: 0;
+
+        li {
+          text-decoration: none;
+          text-transform: uppercase;
+          font-size: 0.875rem;
+          font-weight: bold;
+          letter-spacing: 1px;
+          padding: 0.7rem 2.2rem;
+          color: #999999;
+
+          &:first-child {
+            border-left: 1px solid #333333;
+            border-right: 0.5px solid #333333;
+          }
+
+          &:last-child {
+            border-left: 0.5px solid #333333;
+            border-right: 1px solid #333333;
+          }
+
+          a {
+            color: #999999;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
   }
 
-  .character-wrapper {
+  .home-wrapper {
+    margin: 5% auto;
+    display: flex;
+    justify-content: center;
+
+    a {
+      position: relative;
+      margin: 1rem;
+      padding: 5rem 2rem;
+      background: #000;
+      color: #fddc38;
+      font-size: 3rem;
+      font-family: 'CrawlTitle', sans-serif;
+      font-weight: bolder;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: $transition;
+      border-left: 5px solid #333333;
+      border-right: 5px solid #333333;
+      transition: $transition;
+      // transform: perspective(1000px) rotateX(0deg) scale(1);
+
+      &:hover {
+        transform: scale(1.15);
+        z-index: 1;
+      }
+    }
+  }
+
+  .filter-wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -19,9 +122,9 @@ html {
 
     .character-card {
       color: #217dba;
-      margin: 1em;
-      padding: 2em;
-      width: 20%;
+      margin: 1rem;
+      padding: 1rem 2rem;
+      width: 10%;
       font-weight: bold;
       background: rgba(67, 91, 152, 0.35);
       border: solid 5px rgba(49, 84, 170, 0.5);
@@ -30,21 +133,26 @@ html {
       transition: 0.3s cubic-bezier(0.77, 0.6, 0.36, 0.77);
       filter: $dropshadow;
 
-      .character-icon {
-        position: relative;
-
-        &::after {
-          content: '';
-          position: absolute;
-          height: 100px;
-          width: 100px;
-          background-image: url('./images/character-icon.png');
-          z-index: 2;
-        }
-      }
-      
       &:hover {
         transform: rotateY(0deg) rotateX(0deg) scale(1.05);
+      }
+
+      h2 {
+        color: #217dba;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+	      font-size: 1.5rem;
+        font-style: italic;
+        filter: $dropshadow;
+      }
+
+      img {
+        display: block;
+        margin: 1rem auto;
+        height: auto;
+        width: 100px;
+        filter: $dropshadow;
       }
 
       ul {

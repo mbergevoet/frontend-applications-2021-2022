@@ -1,17 +1,33 @@
 import './App.scss';
-import Title from './components/Title';
-import CharacterData from './components/CharacterData';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import Title from './components/Title';
+import Home from './pages/Home';
+import Filter from './pages/Filter';
+import Visualisation from './pages/Visualisation';
 import { StarWarsProvider } from "./providers/StarWarsContext";
+import NavBar from './components/NavBar';
 
 function App() {
 
   return (
-    <div className="App">
-      <StarWarsProvider>
-        <Title>Characters</Title>
-        <CharacterData />
-      </StarWarsProvider>
-    </div>
+    <Router>
+      <div className="App">
+        <StarWarsProvider>
+          <NavBar />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/filter">
+              <Filter />
+            </Route>
+            <Route exact path="/visualisation">
+              <Visualisation />
+            </Route>
+          </Switch>
+        </StarWarsProvider>
+      </div>
+    </Router>
   );
 }
 
