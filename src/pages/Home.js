@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
+
 function Home() {
     return (
         <div class="home-wrapper">
-            <a href="/character-filter">star Wars Character Filter</a>
-            <a href="/visualisation">star Wars Visualisation</a>
+            <Link to="/character-filter">star Wars Character Filter</Link>
+            <Link to="/visualisation">star Wars Visualisation</Link>
         </div>
     );
 }

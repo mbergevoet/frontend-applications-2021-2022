@@ -5,20 +5,29 @@ function Visualisation() {
     const starWarsJson = useContext(StarWarsContext);
 
     if (starWarsJson) {
-        const eyeColor = starWarsJson.results.map((item) => {
-            return { eye_color: item.eye_color }
-        });
-        const eyeColorCount = [];
-        eyeColor.forEach(item => {
-            // if not exists make it one
-            if (!eyeColorCount[item.eye_color]) {
-                eyeColorCount[item.eye_color] = 1;
-                // if exists add one
+        const eyeColor = Object.values(starWarsJson.results.reduce((accumulator, item) => {
+            if (!accumulator[item.eye_color]) {
+                // if not exists make the color
+                accumulator[item.eye_color] = { count: 1, eye_color: item.eye_color }
             } else {
-                eyeColorCount[item.eye_color]++;
+                // if exists add to existing color
+                accumulator[item.eye_color].count++;
             }
-        });
-        console.log(eyeColorCount);
+            return accumulator
+        }, {}));
+
+        // const eyeColorCount = [];
+        // eyeColor.forEach(item => {
+        //     // if not exists make it one
+        //     if (!eyeColorCount[item.eye_color]) {
+        //         eyeColorCount[item.eye_color] = 1;
+        //         // if exists add one
+        //     } else {
+        //         eyeColorCount[item.eye_color]++;
+        //     }
+        // });  
+
+        console.log(eyeColor.count);
     }
 
     return (

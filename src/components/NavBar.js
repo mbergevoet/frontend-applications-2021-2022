@@ -1,4 +1,5 @@
 import starWarsLogo from '../images/starwarslogowhite.png';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     return (
@@ -8,9 +9,15 @@ function NavBar() {
             </div>
             <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/filter">Filter</a></li>
-                    <li><a href="/visualisation">Visualisation</a></li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/filter">Filter</Link>
+                    </li>
+                    <li>
+                        <Link to="/visualisation">Visualisation</Link>
+                    </li>
                 </ul>
             </nav>
         </header>
