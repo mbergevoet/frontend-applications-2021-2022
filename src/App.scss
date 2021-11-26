@@ -10,6 +10,7 @@
 
 $dropshadow: drop-shadow(1px 4px 4px rgb(36, 36, 209));
 $transition: 0.3s all;
+$swYellow: #FDDC38;
 
 html {
   background: #1d1f20;
@@ -18,6 +19,14 @@ html {
 
 p, h1 {
   color: #fff;
+}
+
+h1 {
+  font-size: 3rem;
+  font-family: 'CrawlTitle', sans-serif;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  color: $swYellow;
 }
 
 .App {
@@ -98,7 +107,7 @@ p, h1 {
       margin: 1rem;
       padding: 5rem 2rem;
       background: #000;
-      color: #fddc38;
+      color: $swYellow;
       font-size: 3rem;
       font-family: 'CrawlTitle', sans-serif;
       font-weight: bolder;
@@ -113,6 +122,31 @@ p, h1 {
       &:hover {
         transform: perspective(1000px) rotateX(20deg) scale(1.15);
         z-index: 1;
+      }
+    }
+  }
+
+  .select-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    select {
+      display: block;
+      width: 300px;
+      font-size: 1.3rem;
+      font-family: 'CrawlBody', sans-serif;
+      padding: 1rem;
+      background: #1D1F20;
+      color: $swYellow;
+      border: none;
+      border-radius: 20px;
+
+      option {
+        padding: 0.5rem 0;
+        line-height: 2rem;
+        text-align: justify;
+        background: #1D1F20;
       }
     }
   }
@@ -169,6 +203,22 @@ p, h1 {
           filter: $dropshadow;
         }
       }
+    }
+  }
+
+  .visualitation-wrapper {
+
+    .header-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    ul {
+      list-style: none;
+      color: $swYellow;
+      font-size: 1.5rem;
+      font-family: 'CrawlBody', sans-serif;
     }
   }
 }
