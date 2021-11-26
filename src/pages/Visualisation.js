@@ -18,17 +18,6 @@ function Visualisation() {
             return accumulator
         }, {}));
 
-        // const eyeColorCount = [];
-        // eyeColor.forEach(item => {
-        //     // if not exists make it one
-        //     if (!eyeColorCount[item.eye_color]) {
-        //         eyeColorCount[item.eye_color] = 1;
-        //         // if exists add one
-        //     } else {
-        //         eyeColorCount[item.eye_color]++;
-        //     }
-        // });  
-
         console.log(eyeColor);
     }
 

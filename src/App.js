@@ -10,6 +10,8 @@ function App() {
 
   return (
     <div className="App">
+      <p></p>
+      <h1></h1>
       <StarWarsProvider>
         <NavBar />
         <Route exact path="/"><Home /></Route>

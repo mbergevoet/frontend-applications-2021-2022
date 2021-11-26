@@ -10,16 +10,18 @@ function ForceLayout({ data }) {
             var height = window.innerHeight;
 
             var colorScale = '#FDDC38';
+            var eyeColorScale = ['#2e536f', '#f5fc6a', '#ff4d29', '#634E34', '#497665', '#000', '#ff8229', 'C3C185', '#ff8ad8', '#fff', '#a72ac7', '#F7D000', '#06913b', '#fff'];
 
             var nodes = data.map(function (d, index) {
                 return {
-                    radius: d.count * 5,
-                    category: index % 1
+                    radius: d.count * 6,
+                    category: index % 1,
+                    fill: eyeColorScale[index]
                 }
             });
 
             var simulation = d3.forceSimulation(nodes)
-                .force('charge', d3.forceManyBody().strength(10))
+                .force('charge', d3.forceManyBody().strength(200))
                 .force('x', d3.forceX().x(function (d) {
                     return width / 2;
                 }))
@@ -40,7 +42,7 @@ function ForceLayout({ data }) {
                         return d.radius;
                     })
                     .style('fill', function (d) {
-                        return colorScale;
+                        return d.fill;
                     })
                     .attr('cx', function (d) {
                         return d.x;
@@ -60,7 +62,7 @@ function ForceLayout({ data }) {
             </div>
             <ul>
                 {data.map(e => (
-                    <li>{e.eye_color} {e.count}</li>
+                    <li>{e.eye_color}: {e.count}</li>
                 ))}
             </ul>
         </>
