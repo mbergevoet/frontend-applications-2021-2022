@@ -1,4 +1,4 @@
-# React App Star Wars Viz
+# Star Wars Viz React App
 
 ## Concept
 
@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Live link
 
-Ik you don't want to clone and run the app localy you can view the live build of the App by going to the following link\
+If you don't want to clone and run the app localy you can view the live build by going to the following link\
 https://star-wars-viz.herokuapp.com/
 
 ## License
