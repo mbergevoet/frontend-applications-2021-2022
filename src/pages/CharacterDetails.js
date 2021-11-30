@@ -14,8 +14,8 @@ const CharacterDetails = () => {
         // if (query in character.url) {
         //     console.log(character);
         // }
-        const selectedCharcter = character.find(key => key.url === query);
-        console.log(selectedCharcter);
+        // const selectedCharcter = character.find(key => key.url === query);
+        // console.log(selectedCharcter);
     });
 
     return (
