@@ -3,38 +3,38 @@ import React from "react";
 import * as d3 from "d3";
 
 function ForceLayout({ data }) {
+
+    const eyeColorScale = ['#2E536F', '#F5FC6A', '#FF4D29', '#634E34', '#497665', '#000', '#FF8229', '#C3C185', '#FF8ad8', '#FFF', '#A72AC7', '#F7D000', '#06913B', '#FFF'];
+
     const ref = useD3(
         (svg) => {
 
-            var width = window.innerWidth;
-            var height = window.innerHeight;
+            const width = window.innerWidth;
+            const height = window.innerHeight;
 
-            var colorScale = '#FDDC38';
-            var eyeColorScale = ['#2e536f', '#f5fc6a', '#ff4d29', '#634E34', '#497665', '#000', '#ff8229', 'C3C185', '#ff8ad8', '#fff', '#a72ac7', '#F7D000', '#06913b', '#fff'];
-
-            var nodes = data.map(function (d, index) {
+            const nodes = data.map(function (d, index) {
                 return {
-                    radius: d.count * 6,
+                    radius: d.count * 7,
                     category: index % 1,
                     fill: eyeColorScale[index]
                 }
             });
 
-            var simulation = d3.forceSimulation(nodes)
-                .force('charge', d3.forceManyBody().strength(200))
+            const simulation = d3.forceSimulation(nodes)
+                .force('charge', d3.forceManyBody().strength(10))
                 .force('x', d3.forceX().x(function (d) {
-                    return width / 2;
+                    return width / 2.1;
                 }))
                 .force('y', d3.forceY().y(function (d) {
-                    return height / 10;
+                    return height / 8;
                 }))
-                .force('collision', d3.forceCollide().radius(function (d) {
+                .force('collision', d3.forceCollide(20).radius(function (d) {
                     return d.radius + 2;
                 }))
                 .on('tick', ticked);
 
             function ticked() {
-                var u = d3.select('svg g')
+                const u = d3.select('svg g')
                     .selectAll('circle')
                     .data(nodes)
                     .join('circle')
@@ -55,16 +55,18 @@ function ForceLayout({ data }) {
 
     return (
         <>
+            <ul class="visualisation-legend">
+                {data.map((e, i) => (
+                    <li >
+                        <span style={{ background: eyeColorScale[i] }}></span>{e.eye_color}: {e.count}
+                    </li>
+                ))}
+            </ul>
             <div id="content">
-                <svg width="100vw" height="70vh">
+                <svg width="100vw" height="100vh">
                     <g transform="translate(50, 200)"></g>
                 </svg>
             </div>
-            <ul>
-                {data.map(e => (
-                    <li>{e.eye_color}: {e.count}</li>
-                ))}
-            </ul>
         </>
     );
 }

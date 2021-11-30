@@ -18,7 +18,7 @@ function Visualisation() {
             return accumulator
         }, {}));
 
-        console.log(eyeColor);
+        // console.log(eyeColor);
     }
 
     return (

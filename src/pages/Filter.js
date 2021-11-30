@@ -5,7 +5,7 @@ import CharacterCard from "../components/CharacterCard";
 const Episodes = [
     { id: "https://swapi.dev/api/films/4/", label: "Episode 1", title: "The Phantom Menace" },
     { id: "https://swapi.dev/api/films/5/", label: "Episode 2", title: "Attack Of The Clones" },
-    { id: "https://swapi.dev/api/films/6/", label: "Episode 3", title: "Revenge Of The Sith" },
+    { id: "https://swapi.dev/api/films/6/", label: "Episode 3", title: "Revenge Of The sith" },
     { id: "https://swapi.dev/api/films/1/", label: "Episode 4", title: "A New Hope" },
     { id: "https://swapi.dev/api/films/2/", label: "Episode 5", title: "The Empire strikes Back" },
     { id: "https://swapi.dev/api/films/3/", label: "Episode 6", title: "Return Of The Jedi" }
