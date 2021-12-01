@@ -15,7 +15,7 @@ function App() {
         <NavBar />
         <Route exact path="/"><Home /></Route>
         <Route exact path="/filter"><Filter /></Route>
-        <Route exact path="/filter/:characterId"><CharacterDetails /></Route>
+        <Route exact path="/character/:characterId"><CharacterDetails /></Route>
         <Route exact path="/visualisation"><Visualisation /></Route>
       </StarWarsProvider>
     </div>

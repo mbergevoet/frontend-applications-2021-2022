@@ -5,7 +5,7 @@ import characterIcon from '../images/character-icon.png';
 function CharacterCard({ name, height, mass, eye_color, birth_year, url }) {
     const id = url.replace("https://swapi.dev/api/people/", "");
     return (
-        <Link class="character-card" to={`/filter/${id}`}>
+        <Link class="character-card" to={`/character/${id}`}>
             <h2>{name}</h2>
             <img src={characterIcon} alt="Darth Vader Icon" />
             <ul>
