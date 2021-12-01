@@ -17,8 +17,6 @@ function Visualisation() {
             }
             return accumulator
         }, {}));
-
-        // console.log(eyeColor);
     }
 
     return (

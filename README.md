@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Live link
 
-If you don't want to clone and run the app localy you can view the live build by going to the following link\
+If you don't want to clone and run the app localy you can view the live build on heroku by going to the following link\
 https://star-wars-viz.herokuapp.com/
 
 ## License
