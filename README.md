@@ -26,7 +26,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 If you don't want to clone and run the app localy you can view the live build on heroku by going to the following link\
 https://star-wars-viz.herokuapp.com/
 
-# :fax: About the API
+## :fax: About the API
 
 For this course I'm using the [Star Wars API](https://swapi.dev/). This API is and open REST API which means you don't need a key to access it. But because it's free you only get 10.000 requests per day. That's still a lot of requests but there is a limit.\
 Obiously the API returns JSON String data which I can use to inject it into a HTML page.\
