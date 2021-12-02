@@ -9,10 +9,10 @@ function CharacterCard({ name, height, mass, eye_color, birth_year, url }) {
             <h2>{name}</h2>
             <img src={characterIcon} alt="Darth Vader Icon" />
             <ul>
-                <li>{height}</li>
-                <li>{mass}</li>
-                <li>{eye_color}</li>
-                <li>{birth_year}</li>
+                <li>{height} cm</li>
+                <li>{mass === "unknown" ? mass + " mass" : mass + "kg"}</li>
+                <li>{eye_color} eyes</li>
+                <li>{birth_year === "unknown" ? "birth year " + birth_year : birth_year}</li>
             </ul>
         </Link>
     );

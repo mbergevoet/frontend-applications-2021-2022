@@ -9,11 +9,14 @@ function ForceLayout({ data }) {
     const ref = useD3(
         (svg) => {
 
+            const tooltip = d3.select("body").append("div").attr("class", "tool-tip");
+
             const width = window.innerWidth;
             const height = window.innerHeight;
 
             const nodes = data.map(function (d, index) {
                 return {
+                    name: d.eye_color,
                     radius: d.count * 7,
                     category: index % 1,
                     fill: eyeColorScale[index]
@@ -34,7 +37,7 @@ function ForceLayout({ data }) {
                 .on('tick', ticked);
 
             function ticked() {
-                const u = d3.select('svg g')
+                const circles = d3.select('svg g')
                     .selectAll('circle')
                     .data(nodes)
                     .join('circle')
@@ -49,7 +52,15 @@ function ForceLayout({ data }) {
                     })
                     .attr('cy', function (d) {
                         return d.y;
-                    });
+                    })
+                    .on("mousemove", function(event, d){
+                        tooltip
+                          .style("left", event.pageX - 0 + "px")
+                          .style("top", event.pageY - 40 + "px")
+                          .style("display", "inline-block")
+                          .html((d.name + ": " + d.radius / 7));
+                    })
+                    .on("mouseout", function(d){ tooltip.style("display", "none");});
             }
         });
 
@@ -57,12 +68,12 @@ function ForceLayout({ data }) {
         <>
             <ul class="visualisation-legend">
                 {data.map((e, i) => (
-                    <li >
+                    <li>
                         <span style={{ background: eyeColorScale[i] }}></span>{e.eye_color}: {e.count}
                     </li>
                 ))}
             </ul>
-            <div id="content">
+            <div id="viz">
                 <svg width="100vw" height="100vh">
                     <g transform="translate(50, 200)"></g>
                 </svg>
