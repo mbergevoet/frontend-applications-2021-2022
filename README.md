@@ -4,6 +4,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+A React App made with Star Wars data to make a visualisation
+
+**Features**
+
 Chose which page you want to see on Home
 
 <img src="https://i.imgur.com/aw5VFRf.png" width="100%"/>
