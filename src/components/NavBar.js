@@ -10,6 +10,7 @@ function NavBar() {
             <nav>
                 <ul>
                     <li>
+                        {/* Links to the three main routes */}
                         <Link to="/">Home</Link>
                     </li>
                     <li>
