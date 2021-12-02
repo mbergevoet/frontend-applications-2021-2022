@@ -8,7 +8,7 @@
 	src: url('./fonts/SWCrawlBody.ttf');
 }
 
-$dropshadow: drop-shadow(1px 4px 4px rgb(36, 36, 209));
+$dropshadow: drop-shadow(0px 0px 10px rgb(36, 36, 209));
 $transition: 0.3s all;
 $swYellow: #fddc38;
 
@@ -28,6 +28,10 @@ h1 {
 	font-weight: bolder;
 	letter-spacing: 1px;
 	color: $swYellow;
+}
+
+body {
+	position: relative;
 }
 
 .App {
@@ -174,7 +178,7 @@ h1 {
 			width: 15%;
 			font-weight: bold;
 			background: rgba(67, 91, 152, 0.35);
-			border: solid 5px rgba(49, 84, 170, 0.5);
+			border: solid 5px #8eb6f2;
 			border-radius: 15px;
 			transform: perspective(3000px) rotateY(20deg) rotateX(15deg);
 			transition: 0.3s cubic-bezier(0.77, 0.6, 0.36, 0.77);
@@ -216,6 +220,68 @@ h1 {
 		}
 	}
 
+	.character-detail-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		& > ul {
+			list-style: none;
+			color: #8eb6f2;
+			margin-top: 3rem;
+			padding: 1rem 2rem;
+			width: 500px;
+			font-weight: bold;
+			background: rgba(67, 91, 152, 0.35);
+			border: solid 5px #8eb6f2;
+			border-radius: 15px;
+			filter: $dropshadow;
+
+			li {
+				margin: 1rem 0;
+				filter: $dropshadow;
+
+				& > :first-child {
+					position: relative;
+
+					&::after {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 50%;
+						height: 2px;
+						background: #8eb6f2;
+					}
+				}
+
+				ul {
+					list-style: none;
+					padding: 0;
+
+					li {
+						margin: 0;
+						filter: $dropshadow;
+
+						&:last-child {
+							position: relative;
+
+							&::after {
+								content: '';
+								position: absolute;
+								bottom: -3px;
+								left: 0;
+								width: 50%;
+								height: 2px;
+								background: #8eb6f2;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.visualitation-wrapper {
 		.header-wrapper {
 			display: flex;
@@ -249,4 +315,14 @@ h1 {
 			}
 		}
 	}
+}
+
+.tool-tip {
+	position: absolute;
+	z-index: 10;
+	color: $swYellow;
+	background: black;
+	padding: 0.5rem;
+	text-transform: uppercase;
+	font-family: 'CrawlBody', sans-serif;
 }
