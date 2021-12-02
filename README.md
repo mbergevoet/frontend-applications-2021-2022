@@ -12,6 +12,12 @@ Clone the repository
 git clone https://github.com/mbergevoet/frontend-applications-2021-2022
 ```
 
+Then install the depedencies
+
+```
+npm install
+```
+
 To start the React App you need to run
 
 ```

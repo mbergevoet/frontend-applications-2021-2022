@@ -4,6 +4,7 @@ import * as d3 from "d3";
 
 function ForceLayout({ data }) {
 
+    // Array of colors that correspond with the circles D3 renders
     const eyeColorScale = ['#2E536F', '#F5FC6A', '#FF4D29', '#634E34', '#497665', '#000', '#FF8229', '#C3C185', '#FF8ad8', '#FFF', '#A72AC7', '#F7D000', '#06913B', '#FFF'];
 
     const ref = useD3(
@@ -14,6 +15,7 @@ function ForceLayout({ data }) {
             const width = window.innerWidth;
             const height = window.innerHeight;
 
+            // Gives the nodes the right propperties from the data
             const nodes = data.map(function (d, index) {
                 return {
                     name: d.eye_color,
@@ -35,7 +37,8 @@ function ForceLayout({ data }) {
                     return d.radius + 2;
                 }))
                 .on('tick', ticked);
-
+            
+            // Draws the circles
             function ticked() {
                 const circles = d3.select('svg g')
                     .selectAll('circle')
@@ -53,6 +56,7 @@ function ForceLayout({ data }) {
                     .attr('cy', function (d) {
                         return d.y;
                     })
+                    // Function that shows the tooltip when you hover over a circle and places it at the cursor position with a 40px offset
                     .on("mousemove", function(event, d){
                         tooltip
                           .style("left", event.pageX - 0 + "px")
@@ -60,6 +64,7 @@ function ForceLayout({ data }) {
                           .style("display", "inline-block")
                           .html((d.name + ": " + d.radius / 7));
                     })
+                    // Hides or disables the tooltip
                     .on("mouseout", function(d){ tooltip.style("display", "none");});
             }
         });
@@ -67,6 +72,7 @@ function ForceLayout({ data }) {
     return (
         <>
             <ul class="visualisation-legend">
+                {/* Loops over the data and makes a list item for each color and makes a span with the right color */}
                 {data.map((e, i) => (
                     <li>
                         <span style={{ background: eyeColorScale[i] }}></span>{e.eye_color}: {e.count}
